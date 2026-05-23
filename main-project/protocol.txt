@@ -1,12 +1,4 @@
 08:00:00 08:30:00 102400 51200 C:\Program Files\Skype\Skype.exe
 09:15:00 10:00:00 204800 102400 C:\Program Files\Chrome\chrome.exe
-08:30:00 09:45:30 1024000 512000 C:\Program Files\Skype\Skype.exe
-07:15:00 07:55:20 512000 256000 C:\Program Files\Mozilla Firefox\firefox.exe
-09:00:00 10:30:00 2048000 1024000 C:\Users\Admin\AppData\Local\Skype\Skype.exe
-08:00:00 08:30:00 100000 50000 C:\Program Files\WhatsApp\WhatsApp.exe
-10:15:00 11:00:00 3000000 1500000 C:\Program Files\Google\Chrome\chrome.exe
-07:59:59 08:15:00 75000 25000 C:\Program Files\Skype\Skype.exe
 07:45:00 07:55:00 51200 25600 C:\Skype\skype.exe
-11:02:00 08:30:00 102200 64000 C:\Program Files\Skype\Skype.exe
-07:59:59 14:00:00 206800 105600 C:\Program Files\Chrome\chrome.exe
-10:35:00 07:55:00 41000 25600 C:\Skype\skype.exe
+14:30:00 15:45:00 512000 256000 C:\Program Files\Telegram\Telegram.exe
