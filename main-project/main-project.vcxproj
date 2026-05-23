@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TablePrinter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="protocol.txt" />
@@ -137,6 +138,7 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="TablePrinter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
