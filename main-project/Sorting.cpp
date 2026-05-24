@@ -30,8 +30,9 @@ int cmpByProgramAndTraffic(const Session* a, const Session* b) {
     long long trafficA = a->totalTraffic();
     long long trafficB = b->totalTraffic();
 
-    if (trafficA > trafficB) return -1;  
-    if (trafficA < trafficB) return 1;   
+    if (trafficA > trafficB) return -1;
+    if (trafficA < trafficB) return 1;
+
     return 0;  // равны
 }
 
@@ -40,7 +41,7 @@ void insertionSort(vector<Session*>& arr, int (*cmp)(const Session*, const Sessi
     int n = (int)arr.size();
 
     for (int i = 1; i < n; i++) {
-        Session* current = arr[i];  
+        Session* current = arr[i];
         int j = i - 1;
 
         while (j >= 0 && cmp(arr[j], current) > 0) {
@@ -48,7 +49,7 @@ void insertionSort(vector<Session*>& arr, int (*cmp)(const Session*, const Sessi
             j--;
         }
 
-        arr[j + 1] = current;  
+        arr[j + 1] = current;
     }
 }
 
@@ -60,8 +61,8 @@ static int partition(vector<Session*>& arr, int left, int right, int (*cmp)(cons
     for (int j = left; j < right; j++) {
         if (cmp(arr[j], pivot) <= 0) {
             i++;
-            swap(arr[i], arr[j]);  
-        }
+            swap(arr[i], arr[j]);
+        };
     }
 
     // Ставим опорный элемент на правильное место
@@ -71,7 +72,7 @@ static int partition(vector<Session*>& arr, int left, int right, int (*cmp)(cons
 
 void quickSort(vector<Session*>& arr, int left, int right, int (*cmp)(const Session*, const Session*)) {
     if (left < right) {
-        int pi = partition(arr, left, right, cmp); 
+        int pi = partition(arr, left, right, cmp);
 
         quickSort(arr, left, pi - 1, cmp);   // сортируем левую часть
         quickSort(arr, pi + 1, right, cmp);  // сортируем правую часть

@@ -14,14 +14,13 @@
 #include "TablePrinter.h"
 #include "Filters.h"
 #include "Sorting.h"
+#include "Processing.h"
 
 using namespace std;
 
-// Функция для создания массива указателей (для сортировки)
 vector<Session*> createPointerArray(const vector<Session>& sessions) {
     vector<Session*> pointers;
     for (const auto& s : sessions) {
-        // const_cast нужен, так как Session* требует неконстантный указатель
         pointers.push_back(const_cast<Session*>(&s));
     }
     return pointers;
@@ -45,18 +44,19 @@ int main() {
 
     int choice;
     do {
-        cout << "\n======================================\n";
-        cout << "      ФИЛЬТРАЦИЯ ПРОТОКОЛА          \n";
-        cout << "=====================================\n";
-        cout << "  1. Программа Skype                 \n";
-        cout << "  2. После времени 08:00:00          \n";
-        cout << "  3. Диапазон времени                \n";
-        cout << "  4. По полученным данным (>=)       \n";
-        cout << "  5. По отправленным данным (>=)     \n";
-        cout << "  6. Все записи                      \n";
-        cout << "  7. Сортировка                      \n";
-        cout << "  0. Выход                           \n";
-        cout << "======================================\n";
+        cout << "\n=================================================\n";
+        cout << "            ФИЛЬТРАЦИЯ ПРОТОКОЛА                \n";
+        cout << "=================================================\n";
+        cout << "  1. Программа Skype                             \n";
+        cout << "  2. После времени 08:00:00                      \n";
+        cout << "  3. Диапазон времени                            \n";
+        cout << "  4. По полученным данным (>=)                   \n";
+        cout << "  5. По отправленным данным (>=)                 \n";
+        cout << "  6. Все записи                                  \n";
+        cout << "  7. Сортировка                                  \n";
+        cout << "  8. Суммарное время использования сети Интернет \n";
+        cout << "  0. Выход                                       \n";
+        cout << "=================================================\n";
         cout << "Выбор: ";
         cin >> choice;
         cin.ignore();
@@ -127,6 +127,7 @@ int main() {
             cin >> sortCriterion;
             cin.ignore();
 
+            // Создаём массив указателей 
             vector<Session*> pointers = createPointerArray(allSessions);
 
             int (*cmp)(const Session*, const Session*) = nullptr;
@@ -170,6 +171,22 @@ int main() {
                     << setw(20) << s->duration()
                     << s->program << "\n";
             }
+            break;
+        }
+        case 8: {
+            cout << "Введите название программы: ";
+            string progName;
+            getline(cin, progName);
+
+            long long totalTime = getTotalDurationForProgram(allSessions, progName);
+
+            cout << "\nСуммарное время использования программы \"" << progName << "\": ";
+
+            int hours = totalTime / 3600;
+            int minutes = (totalTime % 3600) / 60;
+            int seconds = totalTime % 60;
+
+            cout << hours << "ч " << minutes << "м " << seconds << "с\n";
             break;
         }
         case 0:

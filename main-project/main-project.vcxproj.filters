@@ -24,12 +24,22 @@
     <ClCompile Include="TablePrinter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Sorting.cpp">
+=======
+    <ClCompile Include="Processing.cpp">
+>>>>>>> unit-test
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Filters.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="Sorting.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+>>>>>>> unit-test
   </ItemGroup>
   <ItemGroup>
     <Text Include="protocol.txt" />
@@ -47,6 +57,12 @@
     <ClInclude Include="TablePrinter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="Processing.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+>>>>>>> unit-test
     <ClInclude Include="Sorting.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>

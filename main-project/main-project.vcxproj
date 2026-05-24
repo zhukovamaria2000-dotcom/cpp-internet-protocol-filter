@@ -102,7 +102,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -130,6 +130,7 @@
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Filters.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Processing.cpp" />
     <ClCompile Include="Sorting.cpp" />
     <ClCompile Include="TablePrinter.cpp" />
   </ItemGroup>
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="constants.h" />
     <ClInclude Include="FileReader.h" />
+    <ClInclude Include="Processing.h" />
     <ClInclude Include="Session.h" />
     <ClInclude Include="Sorting.h" />
     <ClInclude Include="TablePrinter.h" />

@@ -4,6 +4,8 @@
 
 #include <string>
 #include <algorithm>
+#include <cctype>
+#include <cstdio>
 
 using namespace std; 
 
