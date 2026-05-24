@@ -1,4 +1,4 @@
-#include <iostream> 
+п»ї#include <iostream> 
 #include <sstream>
 #include <fstream>
 #include <cctype>
@@ -7,7 +7,7 @@
 using namespace std;
 
 
-// Преобразует "чч:мм:сс" в секунды
+// РџСЂРµРѕР±СЂР°Р·СѓРµС‚ "С‡С‡:РјРј:СЃСЃ" РІ СЃРµРєСѓРЅРґС‹
 int toSeconds(const string& time) {
     int h, m, s;
     char c1, c2;
@@ -15,7 +15,7 @@ int toSeconds(const string& time) {
     return h * 3600 + m * 60 + s;
 }
 
-// Разбор строки файла
+// Р Р°Р·Р±РѕСЂ СЃС‚СЂРѕРєРё С„Р°Р№Р»Р°
 bool parseLine(const string& line, Session& s) {
     istringstream iss(line);
     string startStr, endStr;
@@ -38,7 +38,7 @@ vector<Session> readSessionsFromFile(const string& filename) {
 
     
     if (!file.is_open()) {
-        cerr << "Ошибка: не удалось открыть файл " << filename << endl;
+        cerr << "РћС€РёР±РєР°: РЅРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ С„Р°Р№Р» " << filename << endl;
         return sessions;  
     }
 
@@ -53,7 +53,7 @@ vector<Session> readSessionsFromFile(const string& filename) {
             sessions.push_back(s);  
         }
         else {
-            cerr << "Ошибка в строке " << lineNum << ": " << line << endl;
+            cerr << "РћС€РёР±РєР° РІ СЃС‚СЂРѕРєРµ " << lineNum << ": " << line << endl;
         }
     }
 
