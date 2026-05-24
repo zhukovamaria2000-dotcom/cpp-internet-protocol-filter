@@ -12,6 +12,7 @@
 #include "FileReader.h"
 #include "constants.h"
 #include "TablePrinter.h"
+#include "Filters.h"
 
 using namespace std;
 
@@ -36,8 +37,8 @@ int main() {
         cout << "\n======================================\n";
         cout << "      ФИЛЬТРАЦИЯ ПРОТОКОЛА          \n";
         cout << "=====================================\n";
-        cout << "  1. По программе                    \n";
-        cout << "  2. После времени                   \n";
+        cout << "  1. Программа Skype                 \n";
+        cout << "  2. После времени 08:00:00          \n";
         cout << "  3. Диапазон времени                \n";
         cout << "  4. По полученным данным (>=)       \n";
         cout << "  5. По отправленным данным (>=)     \n";
@@ -52,22 +53,13 @@ int main() {
 
         switch (choice) {
         case 1: {
-            cout << "Название программы: ";
-            string prog;
-            getline(cin, prog);
-            for (const auto& s : allSessions)
-                if (s.contains(prog)) result.push_back(s);
-            printSessions(result, "Программа: " + prog);
+            result = filterSessions(allSessions, filterBySkype);
+            printSessions(result, "Протокол программы Skype ");
             break;
         }
         case 2: {
-            cout << "Время (ЧЧ:ММ:СС): ";
-            string t;
-            getline(cin, t);
-            int sec = toSeconds(t);
-            for (const auto& s : allSessions)
-                if (s.startSec >= sec) result.push_back(s);
-            printSessions(result, "Сеансы после " + t);
+            result = filterSessions(allSessions, filterAfter8AM);
+            printSessions(result, "Сеансы после 08:00:00");
             break;
         }
         case 3: {
