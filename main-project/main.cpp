@@ -21,7 +21,7 @@ int main() {
     cout << "Лабораторная работа №8\n";
     cout << "Вариант: Протокол работы в Интернет\n";
     cout << "Студент: Мария Жукова\n";
-    cout << "Номер группы: 25ИСиТ1д\n\n";
+    cout << "Номер группы: 25ИСиТ1д - изменено в dev\n\n";
 
     vector<Session> allSessions = readSessionsFromFile(DATA_FILE);
 
