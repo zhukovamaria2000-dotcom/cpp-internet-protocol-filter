@@ -13,8 +13,17 @@
 #include "constants.h"
 #include "TablePrinter.h"
 #include "Filters.h"
+#include "Sorting.h"
 
 using namespace std;
+
+vector<Session*> createPointerArray(const vector<Session>& sessions) {
+    vector<Session*> pointers;
+    for (const auto& s : sessions) {
+        pointers.push_back(const_cast<Session*>(&s));
+    }
+    return pointers;
+}
 
 int main() {
     setlocale(LC_ALL, "Russian");
@@ -43,6 +52,7 @@ int main() {
         cout << "  4. По полученным данным (>=)       \n";
         cout << "  5. По отправленным данным (>=)     \n";
         cout << "  6. Все записи                      \n";
+        cout << "  7. Сортировка                      \n";
         cout << "  0. Выход                           \n";
         cout << "======================================\n";
         cout << "Выбор: ";
@@ -97,6 +107,70 @@ int main() {
         case 6:
             printSessions(allSessions, "ПОЛНЫЙ ПРОТОКОЛ");
             break;
+        case 7: {  
+            cout << "\n--- Сортировка данных ---\n";
+            cout << "Выберите метод сортировки:\n";
+            cout << "  1. Сортировка вставками (Insertion Sort)\n";
+            cout << "  2. Быстрая сортировка (Quick Sort)\n";
+            cout << "Выбор: ";
+            int sortMethod;
+            cin >> sortMethod;
+            cin.ignore();
+
+            cout << "\nВыберите критерий сортировки:\n";
+            cout << "  1. По убыванию длительности сеанса\n";
+            cout << "  2. По возрастанию программы, затем по убыванию трафика\n";
+            cout << "Выбор: ";
+            int sortCriterion;
+            cin >> sortCriterion;
+            cin.ignore();
+
+            // Создаём массив указателей 
+            vector<Session*> pointers = createPointerArray(allSessions);
+
+            int (*cmp)(const Session*, const Session*) = nullptr;
+            if (sortCriterion == 1) {
+                cmp = cmpByDurationDesc;
+                cout << "\nКритерий: Убывание длительности сеанса\n";
+            }
+            else if (sortCriterion == 2) {
+                cmp = cmpByProgramAndTraffic;
+                cout << "\nКритерий: Программа (A-Z) → Трафик (убывание)\n";
+            }
+            else {
+                cout << "Неверный выбор критерия!\n";
+                break;
+            }
+
+            if (sortMethod == 1) {
+                cout << "Метод: Сортировка вставками\n";
+                insertionSort(pointers, cmp);
+            }
+            else if (sortMethod == 2) {
+                cout << "Метод: Быстрая сортировка\n";
+                quickSort(pointers, cmp);
+            }
+            else {
+                cout << "Неверный выбор метода!\n";
+                break;
+            }
+
+            cout << "\n--- ОТСОРТИРОВАННЫЙ ПРОТОКОЛ ---\n";
+            cout << left << setw(12) << "НАЧАЛО" << setw(12) << "КОНЕЦ"
+                << setw(15) << "ПОЛУЧЕНО" << setw(15) << "ОТПРАВЛЕНО"
+                << setw(20) << "ДЛИТЕЛЬНОСТЬ" << "ПРОГРАММА\n";
+            cout << string(90, '-') << "\n";
+
+            for (const auto* s : pointers) {
+                cout << left << setw(12) << s->startTime()
+                    << setw(12) << s->endTime()
+                    << setw(15) << s->received
+                    << setw(15) << s->sent
+                    << setw(20) << s->duration()
+                    << s->program << "\n";
+            }
+            break;
+        }
         case 0:
             cout << "До свидания!\n";
             break;
