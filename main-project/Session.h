@@ -1,7 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #pragma once  
 
 #include <string>
 #include <algorithm>
+#include <cctype>
+#include <cstdio>
 
 using namespace std; 
 
@@ -28,7 +32,7 @@ struct Session {
         int m = (startSec % 3600) / 60;
         int s = startSec % 60;
         char buf[9];
-        sprintf(buf, "%02d:%02d:%02d", h, m, s);
+        sprintf_s(buf, sizeof(buf), "%02d:%02d:%02d", h, m, s);
         return buf;
     }
 
@@ -38,7 +42,7 @@ struct Session {
         int m = (endSec % 3600) / 60;
         int s = endSec % 60;
         char buf[9];
-        sprintf(buf, "%02d:%02d:%02d", h, m, s);
+        sprintf_s(buf, sizeof(buf), "%02d:%02d:%02d", h, m, s);
         return buf;
     }
 

@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <locale>
 #include <fstream>
 #include <string>
@@ -14,6 +14,7 @@
 #include "TablePrinter.h"
 #include "Filters.h"
 #include "Sorting.h"
+#include "Processing.h"
 
 using namespace std;
 
