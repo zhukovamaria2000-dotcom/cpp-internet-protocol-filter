@@ -9,9 +9,9 @@ void printSessions(const vector<Session>& sessions, const string& title) {
     cout << "\n========================================\n";
     cout << title << "\n";
     cout << "========================================\n";
-    cout << left << setw(12) << "ÐÐÐ§ÐÐ›Ðž" << setw(12) << "ÐšÐžÐÐ•Ð¦"
-        << setw(15) << "ÐŸÐžÐ›Ð£Ð§Ð•ÐÐž" << setw(15) << "ÐžÐ¢ÐŸÐ ÐÐ’Ð›Ð•ÐÐž"
-        << "ÐŸÐ ÐžÐ“Ð ÐÐœÐœÐ\n";
+    cout << left << setw(12) << "ÍÀ×ÀËÎ" << setw(12) << "ÊÎÍÅÖ"
+        << setw(15) << "ÏÎËÓ×ÅÍÎ" << setw(15) << "ÎÒÏÐÀÂËÅÍÎ"
+        << "ÏÐÎÃÐÀÌÌÀ\n";
     cout << string(80, '-') << "\n";
 
     for (const auto& s : sessions) {
@@ -20,5 +20,5 @@ void printSessions(const vector<Session>& sessions, const string& title) {
             << s.program << "\n";
     }
 
-    if (sessions.empty()) cout << "ÐÐµÑ‚ Ð´Ð°Ð½Ð½Ñ‹Ñ…\n";
+    if (sessions.empty()) cout << "Íåò äàííûõ\n";
 }

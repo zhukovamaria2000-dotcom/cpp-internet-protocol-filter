@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="Filters.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sorting.cpp" />
     <ClCompile Include="TablePrinter.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +140,7 @@
     <ClInclude Include="constants.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="Session.h" />
+    <ClInclude Include="Sorting.h" />
     <ClInclude Include="TablePrinter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
